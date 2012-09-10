@@ -1,0 +1,153 @@
+
+/* =Responsive Structure
+----------------------------------------------- */
+
+@media (max-width: 800px) {
+	#content {
+		float:none !important;
+		margin:0 20px !important;
+		width:98% !important;
+	}
+	#access {width:100%;}
+	#wrapper, #colophon, #branding, #main, article.post, #container, #linky {
+    	width: auto !important;
+ 	}
+	#wrapper {
+		margin:10px !important;
+	}
+	#access .menu-header, div.menu {
+		width:95% !important;
+	}
+	article.post {
+   		width:98% !important;
+ 	}
+	#primary, #secondary {
+		width:100% !important;
+	}
+	.slider-wrapper { 
+	width:95%;
+	}
+	#slider, #slider img {
+		width:100%;
+	}
+	#front-columns > div {
+		width:45% ;
+	}
+	#content img, content article.post img, #content article .wp-caption, article embed {
+		max-width:90% !important;
+	}
+	#content {
+		margin:0 10px !important
+	}
+	#access {
+	background:#ddd;
+	}
+	#column3 {
+	clear:left !important;
+	}
+	#slider {
+	width:auto !important;
+	height:auto !important;
+	}
+	#footer-widget-area .widget-title {
+	background:none !important;
+	}
+	.widget-title { 
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	}
+
+}
+
+@media (max-width: 650px) {
+	/* @media (max-width: 650px) Reduce font-sizes for better readability on smaller devices */
+	body, #content p, #content ul, #content ol,#content code, #content pre, #content blockquote {
+		font-size: 13px !important;
+	}
+	#site-title  {
+		line-height:30px;
+	}
+	#site-title a {
+		font-size: 24px;
+	}
+	#site-description {
+		font-size: 12px;
+		line-height:40px;
+	}
+	#access ul {
+		font-size: 12px;
+	}
+	article.intro .entry-content {
+		font-size: 12px;
+	}
+	.entry-title {
+		font-size: 21px;
+	}
+	.featured-post .entry-title {
+		font-size: 14px;
+	}
+	.singular .entry-title {
+		font-size: 28px;
+	}
+	.entry-meta a , .entry-meta, .comments-link{
+		font-size: 10px !important;
+		background:none !important;
+		-moz-box-shadow:none !important;
+		-webkit-box-shadow:none !important;	
+		box-shadow:none !important;
+	}
+	#content .entry-title {
+		font-size:20px !important;
+	}
+	#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+		margin-left:0 !important;
+	}
+	.widget-area a:link, .widget-area a:visited {
+		font-size:10px !important;
+	}	
+	.tinynav	{ 
+	display: block; 
+	}
+    #prime_nav { 
+	display: none;
+	}
+
+	
+
+}
+
+
+
+@media (max-width: 480px) {
+	/* @media (max-width: 450px) Reduce font-sizes for better readability on the smalles of devices */
+		#site-title a {
+		font-size: 118px;
+	}
+
+body, #content p, #content ul, #content ol,#content code, #content pre, #content blockquote {
+		font-size: 12px !important;
+	}
+	#site-title a {
+		font-size: 18px;
+	}
+	#site-description {
+		font-size: 10px;
+	}
+	#front-columns > div {
+		width:90% ;
+	}
+	
+	body {
+		padding: 0;
+	}
+	#page {
+		margin-top: 0;
+	}
+	#branding {
+		border-top: none;
+	}
+
+
+}
+

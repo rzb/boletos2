@@ -1,0 +1,183 @@
+.left_label
+{
+	width: 80px;
+	display: block;
+	float: left;
+}
+
+.control-label
+{
+	font-weight: bold;
+}
+
+.clear
+{
+	clear: both;
+}
+
+.entry-content input
+{
+	margin-bottom: 0 !important;
+}
+
+.entry-content input[type="submit"]
+{
+	padding: 4px 10px !important;
+}
+
+.entry-content select
+{
+	margin: 0 !important;
+}
+
+.entry-content label
+{
+	font-size: 14px !important;
+}
+
+.alert-big p
+{
+	font-size: 16px !important;
+}
+
+.linha-arquivo
+{
+	background: #eee;
+	padding: 5px 5px 5px 5px !important;
+	margin-bottom: 2px;
+}
+
+.linha-arquivo input
+{
+	margin-bottom: 0 !important;
+}
+
+.small-link
+{
+	font-size: 12px !important;
+	margin-left: 15px !important;
+}
+
+ul.nav-pills li
+{
+	text-indent: 0 !important;
+	background: none !important;
+	margin-right: 5px !important;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding-right: 12px;
+	padding-left: 12px;
+	margin-right: 2px;
+	line-height: 14px;	
+	display: block;	
+	color: #0D85CC;	
+}
+
+ul.nav-pills
+{
+	margin-top: -40px !important;
+}
+
+/* comentado por Renato: quebra o layout quando há <a> dentro da <li>
+ul.nav-pills li.active
+{
+	color: white !important;
+	background-color: #08C !important;
+}
+*/
+
+div.pagination-custom ul li
+{
+	list-style-type: none;
+	float: left;
+	background: none !important;
+	text-indent: 0 !important;
+	margin-left:3px;
+}
+
+.table-custom-padding tr.bol-thead th
+{
+	padding: 0 !important;
+}
+
+.table-custom-padding tr.bol-thead th > *
+{
+	display: block;
+	padding: 9px 18px;
+}
+
+.table-popup tr.bol-thead th > *
+{
+	display: block;
+	padding: 3px 6px;
+}
+
+.table-custom-padding tr td, .table-custom-padding tr th
+{
+	padding: 9px 8px !important;
+}
+
+td.data
+{
+	vertical-align: baseline;
+}
+
+td.check
+{
+	vertical-align: middle;
+}
+
+td.bol-opcoes
+{
+	max-width: auto !important;
+}
+
+.center
+{
+	text-align: center !important;
+	vertical-align: middle !important;
+}
+
+.alert-custom-margin
+{
+	margin-bottom: 0;
+	margin-top: 8px;
+}
+
+.table-header .text{position: relative;top: 6px;}
+.table-header .form-inline{position: relative;top: 2px;}
+th.col-head{background-color: #D9EDF7 !important;vertical-align: middle !important;}
+th.col-head a:hover{background-color: #0088CC !important;color: #fff;}
+th.sort a{background-image: url('../img/icons/sort.gif');background-repeat: no-repeat;background-position: center right;cursor: pointer;}
+th.sort-desc a{background-image: url('../img/icons/sort-desc.gif');background-repeat: no-repeat;background-position: center right;background-color: #98d5f2 !important;cursor: pointer;}
+th.sort-asc a{background-image: url('../img/icons/sort-asc.gif');background-repeat: no-repeat;background-position: center right;background-color: #98d5f2 !important;cursor: pointer;}
+td.bol-servico{width: 100px;}
+th.col-opcoes{width: 200px;}
+th.col-status-boleto, th.col-status-pedido{width: 140px;}
+th.col-nome{width: 200px;}
+th.col-status{width: 35px;}
+th.col-data{width: 85px;}
+th.col-servico{width: 100px;}
+th.col-nossonumero{width: 95px;}
+
+select.opcao
+{
+	width: 180px;
+}
+
+#generic-modal
+{
+	width: 700px;
+	margin: -250px 0 0 -330px;
+}
+
+div.resumo-cliente, div.resumo-pedido{width:50%;float:left;}
+div.linha > *{float:left;}
+div.linha{clear:both;}
+div.etiqueta{width:36%;text-align:right;padding-right:2%;font-weight:bold;}
+div.conteudo{width: 62%;}
