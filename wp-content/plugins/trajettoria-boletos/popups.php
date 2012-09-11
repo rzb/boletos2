@@ -180,6 +180,7 @@ title="Status do pedido:
 			<button class="btn btn-primary close-modal" data-dismiss="modal" aria-hidden="true">Fechar</button>
 		</div>
 <?php
+		//@todo ver boleto e download de arquivos
 		break;
 	default:
 		
@@ -187,3 +188,46 @@ title="Status do pedido:
 }
 
 ?>
+
+<script>
+
+jQuery(document).ready(function(){
+
+	jQuery(".bol-opcao").change(function() {
+		var option = jQuery(this).val().split("_");
+		var id = option[1];
+		switch (option[0]) {
+			case "excluir":
+				// usar modal para confirmar exclusão do boleto
+				jQuery("#excluir-boleto-modal").modal("show");
+				break;
+			case "ver":
+				// chama ver-boleto passando a key
+				redireciona(id);
+				break;
+			case "segunda-via":
+				// chama “boleto”, para que seja criado um NOVO boleto 
+				// (neste caso, os campos são pré-populados com os dados do cliente, 
+				// valor, etc., 
+				// MAS aplicando uma nova data de vencimento a partir da data atual de emissão). 
+				break;
+			case "pedido":
+				jQuery.ajax({
+					url: "<?php echo plugins_url("popups.php",__FILE__); ?>?popup=pedido&bol-id=" + id,
+				 	dataType: "html"
+				}).done(function(data){
+					jQuery("#generic-modalLabel").html("Detalhes do pedido");
+					jQuery("#generic-modal").html(data);
+					jQuery("#generic-modal").modal("show");
+				});
+				
+				break;
+			default:
+				jQuery("#boletos").submit();
+				break;
+		}
+	});
+
+});
+
+</script>

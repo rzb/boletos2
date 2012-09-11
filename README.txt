@@ -1,4 +1,20 @@
-﻿v0.86
+﻿v0.98
+#descrição
+ajustes finais
+
+#changelog
+ajax debugado com sucesso
+
+#known issues
+lentidão para abrir pop-up's com jquery/ajax
+função jquery separada em arquivo externo "common.js" não está carregando
+chamadas para get_boleto geram warning. Falta um 's' em 'include'. Resolver após merge.
+
+#todo
+implementar restante das opções no pop-up "ver dados pessoais". Essas opções já estão implementadas no painel de boletos. Porém, estão via formulário.
+correções de css na página segunda-via
+=====================================================================================
+v0.86
 #descrição
 Recuperação do commit 0.85
 

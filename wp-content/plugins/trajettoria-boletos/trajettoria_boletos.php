@@ -806,10 +806,10 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "nosso_numero"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Nosso Número</a>
 									</th>
 									<th class="col-head <?php if($order=="data_criacao" && $sort=="asc") echo "sort-asc"; elseif($order=="data_criacao" && $sort=="desc") echo "sort-desc"; else echo "sort"; ?>">
-										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "data_criacao"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Dt. Emissão</a>
+										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "data_criacao"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Emissão</a>
 									</th>
 									<th class="col-head <?php if($order=="data_vencimento" && $sort=="asc") echo "sort-asc"; elseif($order=="data_vencimento" && $sort=="desc") echo "sort-desc"; else echo "sort"; ?>">
-										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "data_vencimento"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Dt. Vencimento</a>
+										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "data_vencimento"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Vencimento</a>
 									</th>
 									<th class="col-head <?php if($order=="nome" && $sort=="asc") echo "sort-asc"; elseif($order=="nome" && $sort=="desc") echo "sort-desc"; else echo "sort"; ?>">
 										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "nome"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Cliente</a>
@@ -818,10 +818,10 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "post_title"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Serviço</a>
 									</th>
 									<th class="col-head <?php if($order=="status_boleto" && $sort=="asc") echo "sort-asc"; elseif($order=="status_boleto" && $sort=="desc") echo "sort-desc"; else echo "sort"; ?>">
-										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "status_boleto"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Status do Boleto</a>
+										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "status_boleto"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Status Boleto</a>
 									</th>
 									<th class="col-head <?php if($order=="status_pedido" && $sort=="asc") echo "sort-asc"; elseif($order=="status_pedido" && $sort=="desc") echo "sort-desc"; else echo "sort"; ?>">
-										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "status_pedido"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Status do Pedido</a>
+										<a href="?modo=todos&offset=<?php echo $offset; ?>&limit=<?php echo $limit; ?>&order_by=<?php echo "status_pedido"; ?>&sort=<?php if ($sort == "desc") echo "asc"; else echo "desc"; if (get_query_var("cpf")) echo "&cpf=" . get_query_var("cpf"); ?>">Status Pedido</a>
 									</th>
 									<th class="col-head col-opcoes">
 										<span>Opções</span>
@@ -889,7 +889,7 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 												<option value="em-execucao_<?php echo $bol->id; ?>">Em execução</option>
 												<option value="finalizado_<?php echo $bol->id; ?>">Finalizado</option>
 											</optgroup>
-											<option value="ver_<?php echo $bol->id; ?>">Ver boleto</option>
+											<option value="ver_<?php echo self::_helper_boleto_link( $bol->key_boleto ); ?>">Ver boleto</option>
 											<option value="pedido_<?php echo $bol->id; ?>">Ver pedido</option>
 											<option value="enviar_<?php echo $bol->id; ?>">Enviar para cliente</option>
 											<option value="segunda-via_<?php echo $bol->id; ?>">Gerar segunda via</option>
@@ -990,11 +990,8 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 								jQuery("#excluir-boleto-modal").modal("show");
 								break;
 							case "ver":
-								// chamar ver-boleto
-								// $key = $wpdb->get_var( "SELECT key_boleto FROM " . self::TRAJ_BOLETOS_TABLE . " WHERE id = " . $bolID );
-								//	$link = self::_helper_boleto_link( $key );
-								//	echo "<meta http-equiv='refresh' content='0;url=$link' />";
-								//	exit;
+								// chama ver-boleto passando a key
+								redireciona(id);
 								break;
 							case "segunda-via":
 								// chama “boleto”, para que seja criado um NOVO boleto 
@@ -1003,9 +1000,6 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 								// MAS aplicando uma nova data de vencimento a partir da data atual de emissão). 
 								break;
 							case "pedido":
-								// abre um pop-up com os detalhes do pedido, 
-								// inclusive descrição digitada pelo cliente e 
-								// link para download do(s) arquivo(s) enviado(s)
 								jQuery.ajax({
 									url: "<?php echo plugins_url("popups.php",__FILE__); ?>?popup=pedido&bol-id=" + id,
 								 	dataType: "html"
@@ -1054,6 +1048,11 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 						jQuery("#bulk-action").val("Selecione");
 					});
 
+
+					function redireciona(url)
+					{
+						window.location.href = url;
+					}
 					
 				});
 				
@@ -1072,27 +1071,18 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 	{
 		
 		global $wpdb;
-		
-		$menu = '<div class="alignright">';
-		$menu .= '	<ul class="nav nav-pills">';
-		if( !isset($_POST['segunda-via']) ) { 
-			$menu .= '<li class="active"><a>Etapa 1</a></li>';
-			$menu .= '<li><a>Etapa 2</a></li> ';
-		} else {
-			$menu .= '<li><a>Etapa 1</a></li>';
-			$menu .= '<li class="active"><a>Etapa 2</a></li> ';
-		}
-		$menu .=	'</ul>';
-		$menu .= '</div>';
-		
-		echo $menu;
-		
-		if( !isset($_POST['segunda-via']) || isset($msg) ) {
-			// primeira etapa
 		?>
-			<form method="POST" enctype="multipart/form-data" action="" class="form-horizontal" id="segunda-via">
+		
+		<div class="alignright">
+			<ul class="nav nav-pills">
+				<li class="active" id="etapa1"><a>Etapa 1</a></li>
+				<li id="etapa2"><a>Etapa 2</a></li>
+			</ul>
+		</div>
+		<div id="segunda-via-content">
+			<form method="GET" enctype="multipart/form-data" action="" class="form-horizontal" id="segunda-via">
+			 <div id="input-error"></div>
 			  <legend>Digite seus dados abaixo:</legend>
-			  <div id="input-error"></div>
 			  <div class="control-group">
 			    <label class="control-label" for="cpf">CPF</label>
 			    <div class="controls">
@@ -1110,37 +1100,30 @@ class TrajettoriaBoletos extends WP_Plugin_Setup {
 			      <button type="submit" class="btn" id="segunda-via-submit">OK</button>
 			  </div>
 			</form>
-		<?php
-		} else {
-			// segunda etapa
-		?>
-			<legend>Boletos emitidos:</legend>
-		<?php
-		}
-		?>
+		</div>
 		
 		<script type="text/javascript">
 
-			jQuery(document).ready(function() {
+			jQuery(document).ready(function(e) {
 
-				jQuery("#segunda-via-submit").click(function() {
+				jQuery("#segunda-via").submit(function(e) {
 					var cpf = jQuery("#cpf").val();
 					var email = jQuery("#email").val();
-
 					jQuery.ajax({
 						url: "<?php echo plugins_url("segunda-via.php",__FILE__); ?>?cpf=" + cpf + "&email=" + email,
-						cache: false,
 					 	dataType: "html"
 					}).done(function(data) {
-						if(data=="false") { // @todo pesquisar como trabalhar com retorno via ajax
-							// não há boletos, mostrar alert(bootstrap) de erro dentro do formulário
+						if(data=="false") {
+							// não há boletos... mostra alert(bootstrap) de erro dentro do formulário
 							jQuery('#input-error').html('<div class="alert alert-error fade in alert-custom-margin"><button type="button" class="close" data-dismiss="alert">×</button>Não existe boleto em aberto para o CPF e e-mail digitados.</div>');
 						} else {
-							// submeter formulário
-							jQuery('#segunda-via').submit();
+							// mostra tabela com boletos encontrados substituindo o formulário
+							jQuery('#etapa1').removeClass('active');
+							jQuery('#etapa2').addClass('active');
+							jQuery('#segunda-via-content').html(data);
 						}
 					});
-					
+					e.preventDefault();
 				});
 
 				jQuery('#segunda-via').validate({
